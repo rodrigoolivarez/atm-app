@@ -1,11 +1,13 @@
 import { Box, Button, Typography, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import NumericKeypad from '../../components/NumericKeypad/NumericKeypad';
+import { useSnackbar } from 'notistack';
 
 const Account: React.FC = () => {
     const [saldo, setSaldo] = useState<number>(0);
     const [monto, setMonto] = useState<string>("");
     const token = localStorage.getItem("token")
+    const { enqueueSnackbar } = useSnackbar();
 
     useEffect(() => {
         if (token) {
@@ -31,7 +33,7 @@ const Account: React.FC = () => {
 
     const handleWithdraw = () => {
         if (Number(monto) > saldo) {
-            alert("No hay suficiente saldo!");
+            enqueueSnackbar("No hay suficiente saldo!", { variant: "error" });
             return;
         }
         const newSaldo = saldo - Number(monto);

@@ -3,12 +3,12 @@ import { Box, Button, Typography } from '@mui/material';
 
 interface ErrorMessageProps {
     message: string;
-    onRetry:()=> void;
+    onRetry: () => void;
 }
 
 const ErrorMessage: React.FC<ErrorMessageProps> = ({ message, onRetry }) => {
     return (
-        <Box 
+        <Box
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -16,12 +16,13 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({ message, onRetry }) => {
                 justifyContent: 'center',
                 height: '100vh',
                 color: 'red',
+                fontWeight: '700'
             }}
         >
             <Typography variant="h6">
                 {message}
             </Typography>
-            <Button variant="outlined" onClick={onRetry} sx={{ marginTop: '1em' }}>
+            <Button variant="contained" onClick={onRetry} sx={{ marginTop: '1em' }}>
                 Volver a Intentarlo
             </Button>
         </Box>

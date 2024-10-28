@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import LoadingMessage from '../../components/LoadingMessage/LoadingMessage';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import NumericKeypad from '../../components/NumericKeypad/NumericKeypad';
+import AtmIcon from '@mui/icons-material/Atm';
+import ATMImage from "../../assets/images/ATM.png";
 
 const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
     const [pin, setPin] = useState<string>('');
@@ -15,6 +17,10 @@ const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
             localStorage.setItem("token", "simulated-token");
         }
     }, []);
+
+    const getATMImage = () => {
+        return ATMImage;
+    };
 
     const handleKeyPress = (number: string) => {
         if (pin.length < 6) {
@@ -58,7 +64,7 @@ const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
     return (
         <Box
             sx={{
-                border: "1px solid red",
+                // border: "1px solid red",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -67,10 +73,14 @@ const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
                 height: "100vh",
                 padding: "1em",
                 boxSizing: "border-box",
+                background: "#1C1C2C"
             }}
         >
-            <Typography variant="h4" sx={{ marginBottom: "1em" }}>
-                Login
+            <Box>
+                <img src={getATMImage()} alt="LogoCajeroATM" width={150} height={150} />
+            </Box>
+            <Typography variant="h4" sx={{ marginBottom: "1em", color: "#CCCDD1" }} >
+                Bienvenido a su cajero automatico <AtmIcon />
             </Typography>
             <input
                 type="password"
@@ -88,9 +98,18 @@ const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
                 variant="contained"
                 onClick={handleLogin}
                 disabled={loading || pin.length < 6}
-                sx={{ marginBottom: "1em" }}
+                sx={{
+                    marginBottom: "1em",
+                    background: "#26273B",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+
+
+                }}
+                endIcon={<AtmIcon />}
             >
-                Entrar
+                Ingresar
             </Button>
             <NumericKeypad
                 onKeyPress={handleKeyPress}
