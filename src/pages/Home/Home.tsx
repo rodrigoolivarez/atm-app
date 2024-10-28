@@ -12,7 +12,7 @@ const Home: React.FC<iHome> = ({ onLogout }) => {
       <Typography variant="h4" sx={{ marginBottom: "1em" }}>
         Bienvenido al Cajero Automático
       </Typography>
-      <Account/>
+      <Account />
       <Button variant="contained" onClick={onLogout} sx={{ marginBottom: "1em" }}>
         Salir
       </Button>
