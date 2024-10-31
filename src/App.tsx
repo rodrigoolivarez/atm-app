@@ -2,6 +2,7 @@ import { useState } from "react";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import { SnackbarProvider } from "notistack";
+import { Box } from "@mui/material";
 // import { createTheme, ThemeProvider } from "@mui/material";
 
 
@@ -31,13 +32,13 @@ function App() {
   return (
     // <ThemeProvider theme={theme}>
       <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical: "top", horizontal: "right" }} autoHideDuration={3000}>
-        <div>
+        <Box>
           {isLoggedIn ? (
             <Home onLogout={handleLogout} />
           ) : (
             <Login onLogin={handleLogin} />
           )}
-        </div>
+        </Box>
       </SnackbarProvider>
     // </ThemeProvider>
   );

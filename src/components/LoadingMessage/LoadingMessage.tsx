@@ -14,10 +14,12 @@ const LoadingMessage: React.FC<LoadingMessageProps> = ({ message }) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 height: '100vh',
+                backgroundColor:'#1C1C2C',
+                color:'#CCCDD1'
             }}
         >
-            <CircularProgress />
-            <Typography variant="h6" sx={{ marginTop: '1em' }}>
+            <CircularProgress sx={{color : '#CCCDD1'}}/>
+            <Typography variant="h6" sx={{ marginTop: '1em', color:'#CCCDD1' }}>
                 {message}
             </Typography>
         </Box>

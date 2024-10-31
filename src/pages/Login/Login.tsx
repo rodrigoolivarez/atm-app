@@ -32,9 +32,9 @@ const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
     const handleLogin = () => {
         setLoading(true);
         setErrorMessage(null);
-        const validPin = "123456";
         const token = localStorage.getItem("token");
-
+        const validPin = "123456";
+        
         setTimeout(() => {
             if (pin === validPin && token) {
                 onLogin();
